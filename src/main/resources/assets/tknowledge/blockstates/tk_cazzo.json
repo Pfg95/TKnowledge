@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"type=white": { "model":"tknowledge:tk_cazzo1" }
+		"type=black": { "model":"tknowledge:tk_cazzo2" }
+	}
+}

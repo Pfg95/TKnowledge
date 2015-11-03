@@ -1,0 +1,20 @@
+#MAIN
+itemGroup.knowledge=Thaumaturgical Knowledge
+
+#BLOCKS/ITEMS
+tile.tk_cazzo.white.name=Vafda
+#RESEARCH
+tc.research_category.KNOWLEDGE=Thaumaturgical Knowledge
+#
+tc.research_name.DUPE=Additional duplications
+tc.research_text.DUPE=Alchemy at its finest.
+tk.research_page.DUPE.1=Your tests with the multiplication of simple objects led you you to conquer far greater goals. Now most non-renewable resources sprout from your intellect.<BR>Some of the rarest materials still elude you, but one day...
+tc.research_name.ENT=Additional entropic processings
+tc.research_text.ENT=Is this useful?
+tk.research_page.ENT.1=Perditio is no doubt one of the most interesting aspects you've encountered so far.<BR>Now you can harness its full potential.
+tc.research_name.MAN=Additional manufactures
+tc.research_text.MAN=Synthesize all the things!
+tk.research_page.MAN.1=The very definition of thaumaturgy is to use magic to give new shapes and purposes to pre-existing objects.<BR>But finding new ways to synthesize them is an excellent trick as well.
+#
+
+

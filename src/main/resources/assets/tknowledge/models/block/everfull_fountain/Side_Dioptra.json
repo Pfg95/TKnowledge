@@ -1,0 +1,122 @@
+{
+    "__createdwith": "opl's Model Creator",
+    "ambientocclusion": false,
+    "textures": {
+        "Secondary": "blocks/obsidian",
+        "Fluid": "tkknowledge:blocks/fluid",
+        "Main": "blocks/nether_brick"
+    },
+    "elements": [
+        {
+            "from": [0,0,0],
+            "to": [2,0,8],
+            "faces": {
+                "down": {
+                    "texture": "#Main"
+                }
+            }
+        },
+        {
+            "from": [0,4,0],
+            "to": [16,4,8],
+            "faces": {
+                "up": {
+                    "texture": "#Main"
+                }
+            }
+        },
+        {
+            "from": [0,11.5,0],
+            "to": [16,11.5,8],
+            "faces": {
+                "up": {
+                    "texture": "missingtexture"
+                }
+            }
+        },
+        {
+            "from": [0,0,8],
+            "to": [2,12,12],
+            "faces": {
+                "up": {
+                    "texture": "#Main"
+                },
+                "down": {
+                    "texture": "#Main"
+                },
+                "west": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Main"
+                },
+                "south": {
+                    "texture": "#Main"
+                }
+            }
+        },
+        {
+            "from": [2,0,2],
+            "to": [14,16,14],
+            "faces": {
+                "up": {
+                    "texture": "#Secondary"
+                },
+                "down": {
+                    "texture": "#Secondary"
+                },
+                "west": {
+                    "texture": "#Secondary"
+                },
+                "east": {
+                    "texture": "#Secondary"
+                },
+                "north": {
+                    "texture": "#Secondary"
+                },
+                "south": {
+                    "texture": "#Secondary"
+                }
+            }
+        },
+        {
+            "from": [14,0,8],
+            "to": [16,12,12],
+            "faces": {
+                "up": {
+                    "texture": "#Main"
+                },
+                "down": {
+                    "texture": "#Main"
+                },
+                "east": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Main"
+                },
+                "south": {
+                    "texture": "#Main"
+                }
+            }
+        },
+        {
+            "from": [14,0,0],
+            "to": [16,0,8],
+            "faces": {
+                "down": {
+                    "texture": "#Main"
+                }
+            }
+        },
+        {
+            "from": [2,0,0],
+            "to": [14,0,2],
+            "faces": {
+                "down": {
+                    "texture": "#Main"
+                }
+            }
+        }
+    ]
+}

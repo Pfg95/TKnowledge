@@ -1,0 +1,16 @@
+[
+{
+  "modid": "TKnowledge",
+  "name": "Thaumaturgical Knowledge",
+  "description": "An alchemy focused Thaumcraft addon.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Dr_Benway, HuggableCreep"],
+  "credits": "Code: Dr_Benway, Art: HuggableCreep",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
