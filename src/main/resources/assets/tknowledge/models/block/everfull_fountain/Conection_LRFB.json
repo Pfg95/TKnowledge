@@ -2,9 +2,8 @@
     "__createdwith": "opl's Model Creator",
     "ambientocclusion": false,
     "textures": {
-        "Secondary": "blocks/obsidian",
-        "Fluid": "tkknowledge:blocks/fluid",
-        "Main": "blocks/nether_brick"
+        "Main": "blocks/nether_brick",
+        "Secondary": "blocks/obsidian"
     },
     "elements": [
         {
@@ -22,15 +21,6 @@
             "faces": {
                 "up": {
                     "texture": "#Main"
-                }
-            }
-        },
-        {
-            "from": [0,11.5,0],
-            "to": [16,11.5,16],
-            "faces": {
-                "up": {
-                    "texture": "#Fluid"
                 }
             }
         }

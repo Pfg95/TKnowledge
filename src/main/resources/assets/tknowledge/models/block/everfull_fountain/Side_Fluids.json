@@ -2,29 +2,10 @@
     "__createdwith": "opl's Model Creator",
     "ambientocclusion": false,
     "textures": {
-        "Secondary": "blocks/obsidian",
-        "Fluid": "tkknowledge:blocks/fluid",
-        "Main": "blocks/nether_brick"
+        "Main": "blocks/nether_brick",
+        "Secondary": "blocks/obsidian"
     },
     "elements": [
-        {
-            "from": [-0.5,-12,0],
-            "to": [16.5,8.5,4.5],
-            "faces": {
-                "up": {
-                    "texture": "#Fluid"
-                },
-                "west": {
-                    "texture": "#Fluid"
-                },
-                "east": {
-                    "texture": "#Fluid"
-                },
-                "south": {
-                    "texture": "#Fluid"
-                }
-            }
-        },
         {
             "from": [0,0,0],
             "to": [16,8,4],
