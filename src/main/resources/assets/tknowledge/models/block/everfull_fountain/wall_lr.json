@@ -1,0 +1,55 @@
+{
+    "__createdwith": "opl's Model Creator",
+    "ambientocclusion": false,
+    "textures": {
+        "Secondary": "blocks/obsidian",
+        "Main": "blocks/nether_brick"
+    },
+    "elements": [
+        {
+            "from": [0,4,12],
+            "to": [16,12,16],
+            "faces": {
+                "up": {
+                    "texture": "#Main"
+                },
+                "down": {
+                    "texture": "#Main"
+                },
+                "west": {
+                    "texture": "#Main"
+                },
+                "east": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Main"
+                },
+                "south": {
+                    "texture": "#Main"
+                }
+            }
+        },
+        {
+            "from": [12,4,0],
+            "to": [16,12,12],
+            "faces": {
+                "up": {
+                    "texture": "#Main"
+                },
+                "down": {
+                    "texture": "#Main"
+                },
+                "west": {
+                    "texture": "#Main"
+                },
+                "east": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Main"
+                }
+            }
+        }
+    ]
+}
