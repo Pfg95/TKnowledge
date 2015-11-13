@@ -5,28 +5,10 @@
         "Main": "blocks/nether_brick",
         "Secondary": "blocks/obsidian"
     },
-    "elements": [
-        {
-            "from": [0,0,0],
-            "to": [16,0,8],
-            "faces": {
-                "down": {
-                    "texture": "#Main"
-                }
-            }
-        },
-        {
-            "from": [0,4,0],
-            "to": [16,4,8],
-            "faces": {
-                "up": {
-                    "texture": "#Main"
-                }
-            }
-        },
-        {
-            "from": [0,0,8],
-            "to": [16,12,12],
+    "elements": [		
+		{
+            "from": [0,9,6],
+            "to": [8,15,8],
             "faces": {
                 "up": {
                     "texture": "#Main"
@@ -48,5 +30,5 @@
                 }
             }
         }
-    ]
+	]
 }

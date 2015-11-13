@@ -7,11 +7,11 @@
     },
     "elements": [
         {
-            "from": [3,0,3],
-            "to": [13,8,13],
+            "from": [4,0,4],
+            "to": [12,8,12],
             "faces": {
                 "up": {
-                    "texture": "missingtexture"
+                    "texture": "#Secondary"
                 },
                 "west": {
                     "uv": [8.0,0.0,16.0,12.0],

@@ -14,19 +14,19 @@
                     "texture": "#Main"
                 },
                 "down": {
-                    "texture": "missingtexture"
+                    "texture": "#Main"
                 },
                 "west": {
-                    "texture": "missingtexture"
+                    "texture": "#Main"
                 },
                 "east": {
-                    "texture": "missingtexture"
+                    "texture": "#Main"
                 },
                 "north": {
-                    "texture": "missingtexture"
+                    "texture": "#Main"
                 },
                 "south": {
-                    "texture": "missingtexture"
+                    "texture": "#Main"
                 }
             }
         }

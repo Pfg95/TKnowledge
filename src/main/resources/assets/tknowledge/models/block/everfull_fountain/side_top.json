@@ -8,18 +8,24 @@
     "elements": [
         {
             "from": [0,0,0],
-            "to": [16,0,16],
-            "faces": {
-                "down": {
-                    "texture": "#Main"
-                }
-            }
-        },
-        {
-            "from": [0,4,0],
-            "to": [16,4,16],
+            "to": [0,0,0],
             "faces": {
                 "up": {
+                    "texture": "#Main"
+                },
+                "down": {
+                    "texture": "#Main"
+                },
+                "west": {
+                    "texture": "#Main"
+                },
+                "east": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Main"
+                },
+                "south": {
                     "texture": "#Main"
                 }
             }

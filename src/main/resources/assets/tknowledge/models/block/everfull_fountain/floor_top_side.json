@@ -2,13 +2,13 @@
     "__createdwith": "opl's Model Creator",
     "ambientocclusion": false,
     "textures": {
-        "Main": "blocks/nether_brick",
-        "Secondary": "blocks/obsidian"
+        "Secondary": "blocks/obsidian",
+        "Main": "blocks/nether_brick"
     },
     "elements": [
-        {
-            "from": [0,0,12],
-            "to": [16,12,16],
+	{
+            "from": [0,0,0],
+            "to": [0,0,0],
             "faces": {
                 "up": {
                     "texture": "#Main"
@@ -30,5 +30,6 @@
                 }
             }
         }
+		
     ]
 }
