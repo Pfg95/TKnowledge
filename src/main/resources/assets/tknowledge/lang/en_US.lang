@@ -2,7 +2,10 @@
 itemGroup.knowledge=Thaumaturgical Knowledge
 
 #BLOCKS/ITEMS
-tile.tk_cazzo.white.name=Vafda
+tile.tk_misc.qs_cons.name=Quicksilver Wired Construct
+tile.tk_misc.qs_block.name=Crystallized Quicksilver Block
+tile.tk_slab.qs_block.name=Crystallized Quicksilver Slab
+tile.tk_stairs_qs.name=Crystallized Quicksilver Stairs
 #RESEARCH
 tc.research_category.KNOWLEDGE=Thaumaturgical Knowledge
 #
@@ -15,6 +18,21 @@ tk.research_page.ENT.1=Perditio is no doubt one of the most interesting aspects 
 tc.research_name.MAN=Additional manufactures
 tc.research_text.MAN=Synthesize all the things!
 tk.research_page.MAN.1=The very definition of thaumaturgy is to use magic to give new shapes and purposes to pre-existing objects.<BR>But finding new ways to synthesize them is an excellent trick as well.
+tc.research_name.REC_QS=Crystallized Quicksilver
+tc.research_text.REC_QS=Don't stop me now
+tk.research_page.REC_QS.1=In natural conditions, quicksilver stands out as metal for it is found in liquid form. It solidifies at cold temperatures, but you were wise enough to add some Vitreus in the mix, obtaining a permanently crystallized form of this beatiful and toxic element.
+tk.research_page.REC_QS.2=You already harnessed quicksilver for the manufacture of essentia tubes, and came up with this variant of the Alchemical Construct. Might turn out to be useful...
+tc.research_name.FOUNTAIN=Everfull Fountain
+tc.research_text.FOUNTAIN=Actually oftenfull
+tk.research_page.FOUNTAIN.1=cuz u bad
+tk.research_page.FOUNTAIN.2=cuz u bad
+tk.research_page.FOUNTAIN.3=cuz u bad
+tk.research_page.FOUNTAIN.4=cuz u bad
+tk.research_page.FOUNTAIN.5=cuz u bad
+tk.research_page.FOUNTAIN.thaumium=<IMG>tknowledge:textures/research/thaumium_fountain.png:0:0:255:255:.65</IMG>
+tk.research_page.FOUNTAIN.brass=<IMG>tknowledge:textures/research/brass_fountain.png:0:0:255:255:.85</IMG>
+tk.research_page.FOUNTAIN.void=<IMG>tknowledge:textures/research/void_fountain.png:0:0:255:255:.75</IMG>
 #
-
-
+#
+#OTHER
+tk.fountain.notempty=§5The device must be empty of essentia to start a new crafting.§0

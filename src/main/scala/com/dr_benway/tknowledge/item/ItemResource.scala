@@ -19,8 +19,8 @@ class ItemResource(uName: String = "wat", hidden: Boolean = false) extends BaseI
   
   
   
-  override def getSubItems(item: Item, tab: CreativeTabs, list: java.util.List[_]) {
+  override def getSubItems(item: Item, tab: CreativeTabs, list: java.util.List[ItemStack]) {
     val i = 1
-    for(i <- 0 until i) list.asInstanceOf[java.util.List[ItemStack]].add(new ItemStack(item, 1, i))
+    for(i <- 0 until i) list.add(new ItemStack(item, 1, i))
   }
 }

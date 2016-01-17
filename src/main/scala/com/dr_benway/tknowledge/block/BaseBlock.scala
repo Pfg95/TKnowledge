@@ -27,7 +27,7 @@ import net.minecraft.world.World
  class BaseBlock(uName: String = "wat", mat: Material = Material.rock, hardness: Float = 2.0f, resistance: Float = 2.0f) extends Block(mat) { 
  
     
-    setUnlocalizedName(("tk_" + uName))
+    setUnlocalizedName(s"tk_$uName")
     addToTab()
     setHardness(hardness)
     setResistance(resistance)
@@ -35,7 +35,7 @@ import net.minecraft.world.World
     
     def addToTab() { setCreativeTab(Knowledge.tab) }
     
-    
+    def exists = this != null
     
     def getSpecialName(stack: ItemStack): String = "?"
     
@@ -48,7 +48,6 @@ import net.minecraft.world.World
    
     
     def getStatename(state: IBlockState): String = {
-      
       val uName: String = state.getBlock.getUnlocalizedName
       uName.substring(uName.indexOf(".") + 1)
     }

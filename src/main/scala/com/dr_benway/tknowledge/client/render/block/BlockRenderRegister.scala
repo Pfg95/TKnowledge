@@ -13,14 +13,19 @@ object BlockRenderRegister {
   
   def registerBlockRenderer() {
     
-    reg(TKBlocks.diocan)
-    reg(TKBlocks.cazzo, 0, "tk_cazzo1")
-    reg(TKBlocks.cazzo, 1, "tk_cazzo2")
+    reg(TKBlocks.misc, 0, "tk_misc.qs_cons")
+    reg(TKBlocks.misc, 1, "tk_misc.qs_block")
+    reg(TKBlocks.slab, 0, "tk_slab.qs_block")
+    reg(TKBlocks.slab_double, 0, "tk_misc.qs_block")
+    reg(TKBlocks.stairs_qs, 0, "tk_stairs_qs")
     
   }
   
   def preInit(e: FMLPreInitializationEvent) {
-    ModelBakery.addVariantName(Item.getItemFromBlock(TKBlocks.cazzo), "tknowledge:tk_cazzo1", "tknowledge:tk_cazzo2")
+    ModelBakery.addVariantName(Item.getItemFromBlock(TKBlocks.misc), "tknowledge:tk_misc.qs_cons", "tknowledge:tk_misc.qs_block")
+    ModelBakery.addVariantName(Item.getItemFromBlock(TKBlocks.slab), "tknowledge:tk_slab.qs_block")
+    ModelBakery.addVariantName(Item.getItemFromBlock(TKBlocks.stairs_qs), "tknowledge:tk_stairs_qs")
+    
     
   }
   

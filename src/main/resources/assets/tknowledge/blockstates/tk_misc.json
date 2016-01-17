@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"type=qs_cons":  { "model":"tknowledge:tk_misc.qs_cons" },
+		"type=qs_block": { "model":"tknowledge:tk_misc.qs_block" }
+		
+	}
+}

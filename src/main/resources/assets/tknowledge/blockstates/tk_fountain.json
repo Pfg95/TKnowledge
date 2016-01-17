@@ -5,65 +5,48 @@
 	},
 	"variants": {
 				"east": {
-					0: {
-						
-					},
-					1: {
-						"submodel": "tknowledge:everfull_fountain/side", "y": 270
-					},
-					2: {
-						"submodel": "tknowledge:everfull_fountain/floor_top_side_2", "y": 270
-					}
-				},
-				"hastop": {
 					"true": {
-						"submodel": "tknowledge:everfull_fountain/floor_top"
+						"submodel": "tknowledge:everfull_fountain/sub/side", "y": 270
 					},
 					"false": {
 						
 					}
 				},
-				"north": {
-					0: {
-					
+				"north": {					
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side", "y": 180
 					},
-					1: {
-						"submodel": "tknowledge:everfull_fountain/side", "y": 180
-					},
-					2: {
-						"submodel": "tknowledge:everfull_fountain/floor_top_side_2", "y": 180
+					"false": {
+						
 					}
 				},
 				"south": {
-					0: {
-					
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side"
 					},
-					1: {
-						"submodel": "tknowledge:everfull_fountain/side"
-					},
-					2: {
-						"submodel": "tknowledge:everfull_fountain/floor_top_side_2" 
+					"false": {
+						 
 					}
 				},
 				"west": {
-					0: {
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side", "y": 90
+					},
+					"false": {
 						
-					},
-					1: {
-						"submodel": "tknowledge:everfull_fountain/side", "y": 90
-					},
-					2: {
-						"submodel": "tknowledge:everfull_fountain/floor_top_side_2", "y": 90
 					}
 				},
                 "type": {
 					"pillar_bottom": { "model":"tknowledge:everfull_fountain/pillar_bottom" },
                     "pillar_middle": { "model":"tknowledge:everfull_fountain/pillar_middle" },
                     "pillar_top": { "model":"tknowledge:everfull_fountain/pillar_top" },
-                    "side_dioptra": { "model":"tknowledge:everfull_fountain/side_dioptra" },
+                    "side_dioptra_t": { "model":"tknowledge:everfull_fountain/side_dioptra_t" },
                     "floor": { "model":"tknowledge:everfull_fountain/floor" },
-					"floor_top_side": { "model":"tknowledge:everfull_fountain/floor_top_side" },
-					"side_top": { "model":"tknowledge:everfull_fountain/side_top" }
+					"ghost": { "model":"tknowledge:everfull_fountain/ghost" },
+					"wall": { "model":"tknowledge:everfull_fountain/floor" },
+					"side_dioptra_b": { "model":"tknowledge:everfull_fountain/side_dioptra_b" },
+					"side_dioptra_v": { "model":"tknowledge:everfull_fountain/side_dioptra_v" },
+					"pillar_cup": { "model":"tknowledge:everfull_fountain/pillar_middle" }
                 }
 				
         }
