@@ -1,0 +1,35 @@
+{
+    "__createdwith": "opl's Model Creator",
+    "ambientocclusion": false,
+    "textures": {
+		"particle": "thaumcraft:blocks/thaumium_metal",
+        "Main": "tknowledge:blocks/fountain/thaumium",
+        "Secondary": "thaumcraft:blocks/thaumium_metal"
+    },
+    "elements": [
+        {
+            "from": [0,0,0],
+            "to": [16,16,16],
+            "faces": {
+                "up": {
+                    "texture": "#Secondary"
+                },
+				"down": {
+					"texture": "#Secondary"
+				},
+                "west": {
+                    "texture": "#Main"
+                },
+                "east": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Main"
+                },
+                "south": {
+                    "texture": "#Main"
+                }
+            }
+        }
+    ]
+}

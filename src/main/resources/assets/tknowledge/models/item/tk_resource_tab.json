@@ -1,0 +1,6 @@
+{
+    "parent": "tknowledge:item/abstract",
+    "textures": {
+        "layer0": "tknowledge:items/tab_icon"
+    }
+}

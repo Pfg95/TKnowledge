@@ -1,0 +1,54 @@
+﻿#MAIN
+itemGroup.knowledge=Thaumaturgical Knowledge
+
+#BLOCKS/ITEMS
+tile.tk_misc.qs_cons.name=Quicksilver Wired Construct
+tile.tk_misc.qs_block.name=Crystallized Quicksilver Block
+tile.tk_slab.qs_block.name=Crystallized Quicksilver Slab
+tile.tk_stairs_qs.name=Crystallized Quicksilver Stairs
+tile.tk_fountain.pillar_top.name=Everfull Fountain
+tile.tk_fountain.pillar_middle.name=Everfull Fountain
+tile.tk_fountain.pillar_bottom.name=Everfull Fountain
+tile.tk_fountain.pillar_cup.name=Everfull Fountain
+tile.tk_fountain.side_dioptra_thaumium.name=Everfull Fountain
+tile.tk_fountain.side_dioptra_brass.name=Everfull Fountain
+tile.tk_fountain.side_dioptra_void.name=Everfull Fountain
+tile.tk_fountain.floor.name=Everfull Fountain
+tile.tk_fountain.ghost.name=Everfull Fountain
+tile.tk_fountain.wall.name=Everfull Fountain
+tile.tk_tank.simple.name=Thaumaturge's Tank
+#RESEARCH
+tc.research_category.KNOWLEDGE=Thaumaturgical Knowledge
+#
+tc.research_name.DUPE=Additional duplications
+tc.research_text.DUPE=Alchemy at its finest.
+tk.research_page.DUPE.1=Your tests with the multiplication of simple objects led you you to conquer far greater goals. Now most non-renewable resources sprout from your intellect.<BR>Some of the rarest materials still elude you, but one day...
+tc.research_name.ENT=Additional entropic processings
+tc.research_text.ENT=Is this useful?
+tk.research_page.ENT.1=§8Perditio§0 is no doubt one of the most interesting aspects you've encountered so far.<BR>Now you can harness its full potential.
+tc.research_name.MAN=Additional manufactures
+tc.research_text.MAN=Synthesize all the things!
+tk.research_page.MAN.1=The very definition of thaumaturgy is to use magic to give new shapes and purposes to pre-existing objects.<BR>But finding new ways to synthesize them is an excellent trick as well.
+tc.research_name.REC_QS=Crystallized Quicksilver
+tc.research_text.REC_QS=Don't stop me now
+tk.research_page.REC_QS.1=In natural conditions, quicksilver stands out as metal for it is found in liquid form. It solidifies at cold temperatures, but you were wise enough to add some §bVitreus§0 in the mix, obtaining a permanently crystallized form of this beatiful and toxic element.
+tk.research_page.REC_QS.2=You already harnessed quicksilver for the manufacture of essentia tubes, and came up with this variant of the Alchemical Construct. Might turn out to be useful...
+tc.research_name.FOUNTAIN=Everfull Fountain
+tc.research_text.FOUNTAIN=Qui scientiam auget
+tk.research_page.FOUNTAIN.1=This is the embodiment of your most refined creativity. After the experiences with the Thaumatorium, you figured fluids would be next in your alchemy path.<BR>The Everfull Fountain can smelt items with the help of essentia and vis, and then fill with the resulting liquids its lower cup. There's still so much to discover...
+tk.research_page.FOUNTAIN.2=The Fountain can be made with other magical metals you have discovered. While the §dThaumium§0 brings an overall balance, a §6Brass§0 variant provides more safety, greatly reducing the pollution risk at the cost of crafting speed.<BR><LINE>To start using the fountain, a recipe must be selected by placing one bucket of the output fluid in the lower cup and the item on the top pedestal. If such a recipe exists and has already been discovered, a hologram will appear. Whack the upper cup with the wand to lock the recipe, and the Fountain will begin the crafting process. Essentia will be drained from tubes connected to the pillar below the upper cup.
+tk.research_page.FOUNTAIN.3=As soon as you discovered §5Voidmetal§0 you were eager to create a new Fountain variant. The Voidmetal Fountain ejects fluids lightning-fast but at a cost: the flux production really can't be ignored...
+tk.research_page.FOUNTAIN.4=How curious. Although core traits can only be determined by the inner structure, you found out that planting some vis crystals on top of the Fountain's corners will affect its behaviour.<BR> Those effects can stack and become stronger with the crystals' growth.<LINE>§6Aer§0: Speed is increased, along with vis requirements.<BR>§2Terra§0: Speed is decreased, vis costs are milder.
+tk.research_page.FOUNTAIN.5=§7Ordo§0: The fountain is less likely to release flux, but demands more essentia per craft.<BR>§8Perditio§0: The essentia costs are lowered, but the risk of pollution is higher.<BR>§cIgnis§0: The efficiency for hot fluids is greatly improved: each recipe will yield more fluid than normal. Efficiency for cold fluid is decreased instead.<BR>§3Aqua§0: The polar opposite of §cIgnis§0, efficiency for cold fluid is increased while the efficiency for hot fluids goes down.
+tk.research_page.FOUNTAIN.water=§3Water§0: This is the recipe the Fountain will settle for if no valid alternatives are found. Water will be generated for almost free, taking only a little of §3Aqua§0 vis.<BR>§5Pollution risk§0: §aAlmost null§0.<LINE>§cLava§0: Lava was never too easy to obtain, and alchemy makes no exception. To craft the equivalent of four buckets of lava a block of Netherrack, 8 §cIgnis§0 essentia and 5 §6Aer§0 vis are required.<BR>§5Pollution risk§0: §aLow§0.
+tk.research_page.FOUNTAIN.purifying=§7Purifying Fluid§0: The Fountain can craft the resources you struggled with most with ease and in bulk, if given enough ingredients. A bath salt is required, along with 8 §7Cognitio§0 essentia and some §7Ordo§0 vis.<BR>§5Pollution risk§0: §6Medium§0<LINE>§5Liquid Death§0: In order to craft liquid death, 8 §5Vitium§0, 2 §7Mortuus§0 essentia and a sprinkle of §8Perditio§0 vis are necessary to properly convert a §5Tainted Rock§0. The catalyst might be more expensive than before, but the yield is five times more.<BR>§5Pollution risk§0: §6Medium§0
+tk.research_page.FOUNTAIN.thaumium=<IMG>tknowledge:textures/research/thaumium_fountain.png:0:0:255:255:.60</IMG>
+tk.research_page.FOUNTAIN.brass=<IMG>tknowledge:textures/research/brass_fountain.png:0:0:255:255:.60</IMG>
+tk.research_page.FOUNTAIN.void=<IMG>tknowledge:textures/research/void_fountain.png:0:0:255:255:.60</IMG>
+tc.research_name.TANK_SIMPLE=Storing Fluids
+tc.research_text.TANK_SIMPLE=Hic et Nunc
+tk.research_page.TANK_SIMPLE.1=tank tank
+#
+#
+#OTHER
+tk.fountain.notempty=§5The device must be empty of essentia to start a new crafting.§0

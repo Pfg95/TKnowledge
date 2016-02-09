@@ -1,0 +1,55 @@
+{
+"forge_marker": 1,
+"defaults": {
+	"uvlock": true
+	},
+	"variants": {
+				"east": {
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side", "y": 270
+					},
+					"false": {
+						
+					}
+				},
+				"north": {					
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side", "y": 180
+					},
+					"false": {
+						
+					}
+				},
+				"south": {
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side"
+					},
+					"false": {
+						 
+					}
+				},
+				"west": {
+					"true": {
+						"submodel": "tknowledge:everfull_fountain/sub/side", "y": 90
+					},
+					"false": {
+						
+					}
+				},
+                "type": {
+					"pillar_thaumium": { "model":"tknowledge:everfull_fountain/pillar_thaumium" },
+					"pillar_brass": { "model":"tknowledge:everfull_fountain/pillar_brass" },
+					"pillar_void": { "model":"tknowledge:everfull_fountain/pillar_void" },
+                    "pillar_middle": { "model":"tknowledge:everfull_fountain/pillar_middle" },
+                    "pillar_top": { "model":"tknowledge:everfull_fountain/pillar_top" },
+                    "side_dioptra_t": { "model":"tknowledge:everfull_fountain/side_dioptra_t" },
+                    "floor": { "model":"tknowledge:everfull_fountain/floor" },
+					"ghost": { "model":"tknowledge:everfull_fountain/ghost" },
+					"wall": { "model":"tknowledge:everfull_fountain/floor" },
+					"side_dioptra_b": { "model":"tknowledge:everfull_fountain/side_dioptra_b" },
+					"side_dioptra_v": { "model":"tknowledge:everfull_fountain/side_dioptra_v" },
+					"pillar_cup": { "model":"tknowledge:everfull_fountain/pillar_cup" }
+                }
+				
+        }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "tknowledge:blocks/tk_misc.qs_block",
+        "top": "tknowledge:blocks/tk_misc.qs_block",
+        "side": "tknowledge:blocks/tk_misc.qs_block"
+    }
+}

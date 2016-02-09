@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"type=simple" : { "model":"tknowledge:tk_tank.simple" }
+		
+    }
+}

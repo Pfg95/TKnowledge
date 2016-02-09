@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=qs_block": { "model": "tknowledge:tk_misc.qs_block" },
+        "half=top,variant=qs_block": { "model": "tknowledge:tk_misc.qs_block" }
+    }
+}

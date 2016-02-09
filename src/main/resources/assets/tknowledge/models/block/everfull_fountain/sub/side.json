@@ -1,0 +1,34 @@
+{
+    "__createdwith": "opl's Model Creator",
+    "ambientocclusion": false,
+    "textures": {
+        "Main": "thaumcraft:blocks/arcane_stone_1",
+        "Secondary": "tknowledge:blocks/fountain/side"
+    },
+    "elements": [
+        {
+            "from": [0,0,12],
+            "to": [16,12,16],
+            "faces": {
+                "up": {
+                    "texture": "#Main"
+                },
+                "down": {
+                    "texture": "#Main"
+                },
+                "west": {
+                    "texture": "#Main"
+                },
+                "east": {
+                    "texture": "#Main"
+                },
+                "north": {
+                    "texture": "#Secondary"
+                },
+                "south": {
+                    "texture": "#Secondary"
+                }
+            }
+        }
+    ]
+}
