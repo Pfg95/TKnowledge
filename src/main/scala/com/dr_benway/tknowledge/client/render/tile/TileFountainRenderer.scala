@@ -21,6 +21,7 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats
 import net.minecraft.client.renderer.OpenGlHelper
 import net.minecraftforge.client.MinecraftForgeClient
 import com.dr_benway.tknowledge.client.model.ModelFountain
+import net.minecraft.util.BlockPos
 
 
 
@@ -28,26 +29,58 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
   
   val tess = Tessellator.getInstance
   val wr = tess.getWorldRenderer
-  val model = new ModelFountain()
+  val model = new ModelFountain()  //diesieben eleyson
+  
+  private def preGL() {
+    GlStateManager.pushMatrix()
+    GlStateManager.pushAttrib()
+    GlStateManager.enableCull()
+    GlStateManager.disableLighting()
+    GlStateManager.enableAlpha()
+    GlStateManager.enableBlend()
+    GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
+  }
+  
+  private def postGL() {
+    GlStateManager.disableBlend();
+    GlStateManager.disableAlpha();
+    GlStateManager.enableLighting();
+    GlStateManager.disableCull();
+    GlStateManager.popAttrib();
+    GlStateManager.popMatrix()  
+  }
   
   
   override def renderTileEntityAt(t: TileFountain, x: Double, y: Double, z: Double, f: Float, q: Int) {
     
     GlStateManager.pushMatrix()
+    
+    //GlStateManager.enableBlend()
+    //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
+    
     GlStateManager.translate(x, y, z)
     if(MinecraftForgeClient.getRenderPass != 1) {
       renderModel(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, TKBlocks.fountain, f)
       renderRunes(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, TKBlocks.fountain, f)
       renderItem(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, f)
-      if(t.essentia.visSize() > 0 || t.currentRecipe.getEssentia.visSize() == 0)
+      
+      if(t.essentia.visSize() > 0 || t.currentRecipe.getEssentia.visSize() == 0) {
         renderFluidCup(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, f)
-      if(t.ready == true && t.locked == true)
+      }
+      
+      if(t.ready == true && t.locked == true) {
         renderFluidPouring(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, f, false)
+      }
+      
       renderFluidTank(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, f)
-    } else {
-      if(t.locked == false)
-        renderFluidPouring(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, f, true)
-    }
+    } 
+      else {
+        if(t.locked == false) {
+          renderFluidPouring(t, t.getWorld, t.getPos.getX, t.getPos.getY, t.getPos.getZ, f, true)
+        }
+      }
+    //GlStateManager.disableBlend()
+    
     GlStateManager.popMatrix()
     
   }
@@ -66,10 +99,10 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
   }
   
   private def renderRunes(te: TileFountain, world: World, x: Int, y: Int, z: Int, b: Block, f: Float) {
-    val TEX1 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/memento.png")
-    val TEX2 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/numquam.png")
-    val TEX3 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/scientia.png")
-    val TEX4 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/satis.png")
+    val TEX1 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/runes1.png")
+    val TEX2 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/runes2.png")
+    val TEX3 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/runes3.png")
+    val TEX4 = new ResourceLocation(Knowledge.MODID + ":textures/models/fountain/runes4.png")
     
     val plus = (Math.abs(Math.sin(( (Minecraft.getMinecraft().getRenderViewEntity().ticksExisted + f) * 2 ).toRadians)) * 130).toInt
     val red = if(!te.locked) 0 else 65 + plus // 75 -> 205
@@ -80,9 +113,9 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     this.bindTexture(TEX1)
     //GlStateManager.rotate(180.0F, 0.0F, 0.0F, 0.0F)
     GlStateManager.scale(-1.0F, -1.0F, 1.0F)
-    GlStateManager.scale(1.75F, .2F, 1.0F)
-    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //MEMENTO
-    GlStateManager.translate(-.225F, -4.4F, -.58F)
+    GlStateManager.scale(1.2F, .15F, 1.0F)
+    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //1
+    GlStateManager.translate(-.1F, -5.5F, -.58F)
     GlStateManager.disableCull()
     wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR)
     wr.pos(0, 0, 0).tex(1.0F, 1.0F).color(red, green, blue, 255).endVertex() //100
@@ -97,10 +130,10 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     this.bindTexture(TEX2)
     //GlStateManager.rotate(180.0F, 0.0F, 0.0F, 0.0F)
     GlStateManager.scale(-1.0F, -1.0F, 1.0F)
-    GlStateManager.scale(1.75F, .2F, 1.4F)
-    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //NUMQUAM
+    GlStateManager.scale(1.75F, .15F, 1.2F)
+    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //2
     GlStateManager.rotate(90.0F, 0.0F, 1.0F, 0.0F)
-    GlStateManager.translate(-.87F, -4.4F, -.325F)
+    GlStateManager.translate(-.94F, -5.5F, -.325F)
     GlStateManager.disableCull()
     wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR)
     wr.pos(0, 0, 0).tex(1.0F, 1.0F).color(red, green, blue, 255).endVertex() //100
@@ -115,10 +148,10 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     this.bindTexture(TEX3)
     //GlStateManager.rotate(180.0F, 0.0F, 0.0F, 0.0F)
     GlStateManager.scale(-1.0F, -1.0F, 1.0F)
-    GlStateManager.scale(1.75F, .2F, 1.0F)
-    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //SCIENTIA
+    GlStateManager.scale(1.2F, .15F, 1.0F)
+    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //3
     GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F)
-    GlStateManager.translate(-.79F, -4.4F, -1.58F)
+    GlStateManager.translate(-.92F, -5.5F, -1.58F)
     GlStateManager.disableCull()
     wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR)
     wr.pos(0, 0, 0).tex(1.0F, 1.0F).color(red, green, blue, 255).endVertex() //100
@@ -132,10 +165,10 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     GlStateManager.pushMatrix()
     this.bindTexture(TEX4)
     GlStateManager.scale(-1.0F, -1.0F, 1.0F)
-    GlStateManager.scale(1.75F, .2F, 1.4F)
-    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //SATIS
+    GlStateManager.scale(1.75F, .15F, 1.2F)
+    GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F) //4
     GlStateManager.rotate(270.0F, 0.0F, 1.0F, 0.0F)
-    GlStateManager.translate(-.18F, -4.4F, -.899F)
+    GlStateManager.translate(-.1F, -5.5F, -.899F)
     GlStateManager.disableCull()
     wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR)
     wr.pos(0, 0, 0).tex(1.0F, 1.0F).color(red, green, blue, 255).endVertex() //100
@@ -180,17 +213,17 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     val f_s = Minecraft.getMinecraft.getTextureMapBlocks.getAtlasSprite(fluid.getStill.toString)
     val f_f = Minecraft.getMinecraft.getTextureMapBlocks.getAtlasSprite(fluid.getFlowing.toString)
     val c = fluid.getColor
-    val red: Float = (c&0xFF).toFloat/255
-    val green: Float = ((c >> 8)&0xFF).toFloat/255
-    val blue: Float = ((c >> 16)&0xFF).toFloat/255  //Why??? it works, that's why
-    val alpha: Float = ((c >> 24)&0xFF).toFloat/255
+    val blue = (c&0xFF).toFloat/255
+    val green = ((c >> 8)&0xFF).toFloat/255
+    val red = ((c >> 16)&0xFF).toFloat/255
+    val alpha  = ((c >> 24)&0xFF).toFloat/255
     
-    GlStateManager.pushMatrix()
+    preGL()
+    //GlStateManager.pushMatrix()
     GlStateManager.translate(-.4F, te.calcCupHeight(), -.4F)
     GlStateManager.scale(1.8F, 1.8F, 1.8F)
-    GlStateManager.enableBlend()
-    GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-    GlStateManager.disableAlpha()
+    
+    
     
     wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR)
     this.bindTexture(TextureMap.locationBlocksTexture)
@@ -200,7 +233,8 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     wr.pos(1, 0, 1).tex(f_s.getMaxU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
     tess.draw()
     
-    GlStateManager.popMatrix() 
+    postGL()
+    //GlStateManager.popMatrix() 
   }
   
   private def renderFluidPouring(te: TileFountain, world: World, x: Int, y: Int, z: Int, f: Float, holo: Boolean) {
@@ -209,16 +243,15 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     val f_s = Minecraft.getMinecraft.getTextureMapBlocks.getAtlasSprite(fluid.getStill.toString)
     val f_f = Minecraft.getMinecraft.getTextureMapBlocks.getAtlasSprite(fluid.getFlowing.toString)
     val c = fluid.getColor
-    val red: Float = (c&0xFF).toFloat/255
-    val green: Float = ((c >> 8)&0xFF).toFloat/255
-    val blue: Float = ((c >> 16)&0xFF).toFloat/255
-    val a: Float = ((c >> 24)&0xFF).toFloat/255
+    val blue = (c&0xFF).toFloat/255
+    val green = ((c >> 8)&0xFF).toFloat/255
+    val red = ((c >> 16)&0xFF).toFloat/255
+    val a  = ((c >> 24)&0xFF).toFloat/255
     val alpha = if(holo) a/3 else a
     
-    GlStateManager.pushMatrix()
-    GlStateManager.enableBlend()
-    GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-    GlStateManager.disableAlpha()
+    //GlStateManager.pushMatrix()
+    preGL()
+    
     
     //I heard you like magic numbers... 
     GlStateManager.pushMatrix()
@@ -373,8 +406,8 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
     
     
     
-    
-    GlStateManager.popMatrix()
+    postGL()
+    //GlStateManager.popMatrix()
   }
   
   private def renderFluidTank(te: TileFountain, world: World, x: Int, y: Int, z: Int, f: Float) {
@@ -385,20 +418,19 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
       val f_s = Minecraft.getMinecraft.getTextureMapBlocks.getAtlasSprite(fluid.getStill.toString)
       val f_f = Minecraft.getMinecraft.getTextureMapBlocks.getAtlasSprite(fluid.getFlowing.toString)
       val c = fluid.getColor
-      val red: Float = (c&0xFF).toFloat/255
-      val green: Float = ((c >> 8)&0xFF).toFloat/255
-      val blue: Float = ((c >> 16)&0xFF).toFloat/255
-      val alpha: Float = ((c >> 24)&0xFF).toFloat/255
+      val blue = (c&0xFF).toFloat/255
+      val green = ((c >> 8)&0xFF).toFloat/255
+      val red = ((c >> 16)&0xFF).toFloat/255
+      val alpha  = ((c >> 24)&0xFF).toFloat/255
+      val brightness = Minecraft.getMinecraft.theWorld.getCombinedLight(te.getPos, fluid.getLuminosity)
       
+      preGL()
       
       
       GlStateManager.pushMatrix()
-      //GlStateManager.enableBlend()
-      //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-      //GlStateManager.disableAlpha()
+      
       GlStateManager.translate(-1.85F, te.calcTankHeight(), 0.45F)
       GlStateManager.scale(2.3F, 2.3F, 2.3F)
-      
       wr.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR)
       this.bindTexture(TextureMap.locationBlocksTexture)
       wr.pos(1, 0, 0).tex(f_s.getMaxU, f_s.getMinV).color(red, green, blue, alpha).endVertex()
@@ -409,10 +441,9 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
       
       GlStateManager.popMatrix()
       
+      
       GlStateManager.pushMatrix()
-      //GlStateManager.enableBlend()
-      //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-      //GlStateManager.disableAlpha()
+      
       GlStateManager.translate(-1.85F, te.calcTankHeight(), -1.85F)
       GlStateManager.scale(2.3F, 2.3F, 2.3F)
       GlStateManager.color(red, green, blue, alpha)   
@@ -422,13 +453,13 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
       wr.pos(0, 0, 0).tex(f_s.getMinU, f_s.getMinV).color(red, green, blue, alpha).endVertex()
       wr.pos(0, 0, 1).tex(f_s.getMinU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
       wr.pos(1, 0, 1).tex(f_s.getMaxU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
-      tess.draw() 
+      tess.draw()
+      
       GlStateManager.popMatrix()
       
+      
       GlStateManager.pushMatrix()
-      //GlStateManager.enableBlend()
-      //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-      //GlStateManager.disableAlpha()
+      
       GlStateManager.translate(0.45F, te.calcTankHeight(), -1.85F)
       GlStateManager.scale(2.3F, 2.3F, 2.3F)
       GlStateManager.color(red, green, blue, alpha)   
@@ -439,12 +470,12 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
       wr.pos(0, 0, 1).tex(f_s.getMinU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
       wr.pos(1, 0, 1).tex(f_s.getMaxU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
       tess.draw() 
+      
       GlStateManager.popMatrix()
       
+      
       GlStateManager.pushMatrix()
-      //GlStateManager.enableBlend()
-      //GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-      //GlStateManager.disableAlpha()
+      
       GlStateManager.translate(0.45F, te.calcTankHeight(), 0.45F)
       GlStateManager.scale(2.3F, 2.3F, 2.3F)
       GlStateManager.color(red, green, blue, alpha)   
@@ -454,8 +485,12 @@ object TileFountainRenderer extends TileEntitySpecialRenderer[TileFountain] {
       wr.pos(0, 0, 0).tex(f_s.getMinU, f_s.getMinV).color(red, green, blue, alpha).endVertex()
       wr.pos(0, 0, 1).tex(f_s.getMinU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
       wr.pos(1, 0, 1).tex(f_s.getMaxU, f_s.getMaxV).color(red, green, blue, alpha).endVertex()
-      tess.draw()  
+      tess.draw()
+      
       GlStateManager.popMatrix() 
+      
+      
+      postGL()
     }
   }
   

@@ -4,10 +4,11 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 import com.dr_benway.tknowledge.util.MultiBlockHelper
+import net.minecraft.util.ITickable
 
 
 
-class TileSlave(clazz: String, n: Int = 1, f: EnumFacing = EnumFacing.UP) extends BaseTE {
+class TileSlave(clazz: String, n: Int = 1, f: EnumFacing = EnumFacing.UP) extends BaseTE with ITickable {
   
   def hasMaster(): Boolean = {
     val te = f match {

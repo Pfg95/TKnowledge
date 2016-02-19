@@ -16,16 +16,6 @@ class TileTankSimple extends BaseTE with IFluidHandler {
   
   
   
-  
-  override def update() {
-    
-    
-    
-    
-    
-  }
-  
-  
   //Tank
   val tank = new FluidTank(FluidContainerRegistry.BUCKET_VOLUME * 32)
    

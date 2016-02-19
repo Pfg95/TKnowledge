@@ -15,6 +15,7 @@ import net.minecraft.block.BlockStairs
 import net.minecraft.util.EnumFacing
 import com.dr_benway.tknowledge.block.devices.BlockFountain
 import com.dr_benway.tknowledge.block.tile.devices.fountain.TileFountain
+import com.dr_benway.tknowledge.block.tile.devices.fountain.TileFountainEssentiaHolder
 import net.minecraft.block.BlockDynamicLiquid
 import net.minecraft.block.BlockLiquid
 import net.minecraftforge.fluids.FluidRegistry
@@ -59,15 +60,15 @@ object MultiBlockHelper {
       x <- -2 to 2
     } yield Point(x, y, z) -> (world.getBlockState(pos.add(x, y, z)).getBlock)) toList
     
-    if( (struct filter(_._2 == b1)) != (blueprint filter(_._2 == b1)) ) destroy(world, pos)
+    if( struct.filter(_._2 == b1) != blueprint.filter(_._2 == b1) ) destroy(world, pos)
     }
     
     
     private def mapBlock(world: World, pos: BlockPos): IBlockState = {
       
       def neighbour(world: World, pos: BlockPos): Boolean = {
-      val b = world.getBlockState(pos).getBlock
-      b.isInstanceOf[BlockMetalTC] || b.isInstanceOf[BlockStairsTC] || b.isInstanceOf[BlockStoneSlabTC] || b.isInstanceOf[BlockFountain]
+        val b = world.getBlockState(pos).getBlock
+        b.isInstanceOf[BlockMetalTC] || b.isInstanceOf[BlockStairsTC] || b.isInstanceOf[BlockStoneSlabTC] || b.isInstanceOf[BlockFountain]
       }
       
       
@@ -98,8 +99,17 @@ object MultiBlockHelper {
     }
     
     def destroy(world: World, pos: BlockPos) {
-      //var am = world.getTileEntity(pos).asInstanceOf[TileFountain].tank.getFluidAmount / 1000
+      /*
+      val te = world.getTileEntity(pos) match {
+        case f: TileFountain => f
+        case _ => world.getTileEntity(pos.add(0, -2, 0)) match {
+          case h: TileFountainEssentiaHolder => h
+          case _ => null
+        }
+      }
+      */
       var am = 0
+      //var am = if(te != null) te match { case f: TileFountain => f.tank.getFluidAmount / 1000  case h: TileFountainEssentiaHolder => h.famount / 1000  case _ => 0 } else 0
       for {
       y <- -3 to 0
       z <- -2 to 2
@@ -107,7 +117,7 @@ object MultiBlockHelper {
     } if(world.getBlockState(pos.add(x, y, z)).getBlock == TKBlocks.fountain) {
       world.setBlockState(pos.add(x, y, z), mapBlock(world, pos.add(x, y, z)))
       } else if(am >= 1) {
-        world.setBlockState(pos.add(x, y, z), world.getTileEntity(pos).asInstanceOf[TileFountain].tank.getFluid.getFluid.getBlock.getDefaultState)
+        //world.setBlockState(pos.add(x, y, z), te match { case f: TileFountain => f.tank.getFluid.getFluid.getBlock.getDefaultState  case h: TileFountainEssentiaHolder => h.fluid.getBlock.getDefaultState })
         am -= 1
       }
        

@@ -12,20 +12,24 @@ import thaumcraft.api.aura.AuraHelper
 import thaumcraft.api.aspects.IEssentiaTransport
 import net.minecraft.util.EnumFacing
 import net.minecraft.inventory.IInventory
- 
+
 trait WithTE extends Block with ITileEntityProvider {
   
-  
-  override def createNewTileEntity(worldIn: World, meta: Int): TileEntity = null
+  override def createNewTileEntity(worldIn: World, meta: Int): TileEntity
   
   override def breakBlock(worldIn: World, pos: BlockPos, state: IBlockState) {
-    
-    val tile = worldIn.getTileEntity(pos).asInstanceOf[BaseTE]
-      if(tile != null && tile.isInstanceOf[IInventory]) InventoryUtils.dropItems(worldIn, pos)
-      if((tile != null && tile.isInstanceOf[IEssentiaTransport]) && !worldIn.isRemote) {
-        val ess = tile.asInstanceOf[IEssentiaTransport].getEssentiaAmount(EnumFacing.UP)
-        if (ess > 0) AuraHelper.pollute(worldIn, pos, ess, true)
+    val tile = worldIn.getTileEntity(pos)
+    tile match {
+      case iv: IInventory => InventoryUtils.dropItems(worldIn, pos)
+      case _ =>
+    }
+    tile match {
+      case et: IEssentiaTransport => if(!worldIn.isRemote) {
+        val ess = et.getEssentiaAmount(EnumFacing.UP)
+        if(ess > 0) AuraHelper.pollute(worldIn, pos, ess, true)
       }
+      case _ =>
+    }
     worldIn.removeTileEntity(pos)
     super.breakBlock(worldIn, pos, state)
   }

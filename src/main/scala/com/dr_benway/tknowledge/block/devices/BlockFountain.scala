@@ -340,6 +340,7 @@ class BlockFountain(uName: String, mat: Material = Material.rock, hardness: Floa
       case _ => null
     }
     
+    
     //Wand handling
     override def onWandRightClick(world: World, is: ItemStack, eplayer: EntityPlayer, pos: BlockPos, facing: EnumFacing) = {
     

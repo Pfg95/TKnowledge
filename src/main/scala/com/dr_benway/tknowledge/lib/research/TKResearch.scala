@@ -20,7 +20,6 @@ object TKResearch {
   
   private var researchAspects: AspectList = _
   private var pages: Array[ResearchPage] = _
-  private var elem: ArrayBuffer[ResearchPage] = _
   
   def addResearch() {
     
@@ -64,8 +63,8 @@ object TKResearch {
   pages = Array[ResearchPage](new ResearchPage("tk.research_page.REC_QS.1"), new ResearchPage(getMap.apply("REC_QS_QS_BLOCK").asInstanceOf[CrucibleRecipe]), new ResearchPage(getMap.apply("QS_SLAB").asInstanceOf[IRecipe]), new ResearchPage(getMap.apply("QS_STAIRS").asInstanceOf[IRecipe]), new ResearchPage("tk.research_page.REC_QS.2").setRequisite("THAUMATORIUM"), new ResearchPage(getMap.apply("QS_CONS").asInstanceOf[ShapedArcaneRecipe]).setRequisite("THAUMATORIUM"))
   getTKResearchItem("REC_QS", "KNOWLEDGE", researchAspects, -11, -4, 1, new ItemStack(TKBlocks.misc, 1, 1)).setPages(pages:_*).setParents("METALLURGY").setSecondary().registerResearchItem()
   researchAspects = new AspectList().add(Aspect.WATER, 1).add(Aspect.CRAFT, 1).add(Aspect.FIRE, 1).add(Aspect.ENERGY, 1)
-  pages = Array[ResearchPage](new ResearchPage("tk.research_page.FOUNTAIN.1"), new ResearchPage("tk.research_page.FOUNTAIN.thaumium"), new ResearchPage("tk.research_page.FOUNTAIN.2"), new ResearchPage("tk.research_page.FOUNTAIN.brass"), new ResearchPage("tk.research_page.FOUNTAIN.3").setRequisite("VOIDMETAL"), new ResearchPage("tk.research_page.FOUNTAIN.void").setRequisite("VOIDMETAL"), new ResearchPage("tk.research_page.FOUNTAIN.4").setRequisite("CRYSTALFARMER"), new ResearchPage("tk.research_page.FOUNTAIN.5").setRequisite("CRYSTALFARMER"), new ResearchPage("tk.research_page.FOUNTAIN.water"), new ResearchPage("tk.research_page.FOUNTAIN.purifying"))
-  getTKResearchItem("FOUNTAIN", "KNOWLEDGE", researchAspects, -8, -2, 2, new ItemStack(Items.lava_bucket, 1, 0)).setPages(pages:_*).setParents("REC_QS", "THAUMATORIUM").registerResearchItem()
+  pages = Array[ResearchPage](new ResearchPage("tk.research_page.FOUNTAIN.1"), new ResearchPage("tk.research_page.FOUNTAIN.thaumium"), new ResearchPage("tk.research_page.FOUNTAIN.2"), new ResearchPage("tk.research_page.FOUNTAIN.brass"), new ResearchPage("tk.research_page.FOUNTAIN.3").setRequisite("VOIDMETAL"), new ResearchPage("tk.research_page.FOUNTAIN.void").setRequisite("VOIDMETAL"), new ResearchPage("tk.research_page.FOUNTAIN.4").setRequisite("CRYSTALFARMER"), new ResearchPage("tk.research_page.FOUNTAIN.5").setRequisite("CRYSTALFARMER"), new ResearchPage("tk.research_page.FOUNTAIN.water"), new ResearchPage("tk.research_page.FOUNTAIN.purifying").setRequisite("LIQUIDDEATH").setRequisite("BATHSALTS"))
+  getTKResearchItem("FOUNTAIN", "KNOWLEDGE", researchAspects, -8, -2, 2, new ResourceLocation("tknowledge", "textures/blocks/fountain/thaumium.png")).setPages(pages:_*).setParents("REC_QS", "THAUMATORIUM").registerResearchItem()
   researchAspects = new AspectList().add(Aspect.WATER, 1).add(Aspect.METAL, 1).add(Aspect.VOID, 1)
   pages = Array[ResearchPage](new ResearchPage("tk.research_page.TANK_SIMPLE.1"), new ResearchPage(getMap.apply("TANK_SIMPLE").asInstanceOf[ShapedArcaneRecipe]))
   //getTKResearchItem("TANK_SIMPLE", "KNOWLEDGE", researchAspects, -6, 0, 1, new ItemStack(TKBlocks.tank, 1, 0)).setPages(pages:_*).setParents("FOUNTAIN").registerResearchItem()

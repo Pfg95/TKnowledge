@@ -125,7 +125,34 @@ public class EnumProperty {
 		
 	}
 	
-	
+public enum EnumShelveType implements IStringSerializable {
+		
+		GREATWOOD(0, "greatwood"),
+		SILVERWOOD(1, "silverwood");
+		
+		private int ID;
+	    private String name;
+	    
+	    private EnumShelveType(int ID, String name) {
+	        this.ID = ID;
+	        this.name = name;
+	    }
+	    
+	    @Override
+	    public String getName() {
+	        return name;
+	    }
+
+	    public int getID() {
+	        return ID;
+	    }
+	    
+	    @Override
+	    public String toString() {
+	        return getName();
+	    }
+		
+	}
 	
 
 }

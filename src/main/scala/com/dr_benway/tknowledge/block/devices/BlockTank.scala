@@ -21,12 +21,13 @@ import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.util.EnumFacing
 import net.minecraftforge.fluids.FluidContainerRegistry
 import net.minecraft.init.Items
+import net.minecraftforge.fluids.IFluidHandler
 
 class BlockTank(uName: String, mat: Material = Material.iron, hardness: Float = 2.0f, resistance: Float = 2.0f) extends {
      
   final val TYPE = PropertyEnum.create("type", classOf[EnumProperty.EnumTankType])
   
-} with BaseBlock(uName, mat, hardness, resistance) with traits.WithTE {
+} with BaseBlock(uName, mat, hardness, resistance) with traits.WithTE with traits.RedstoneComparable {
   
   
   setDefaultState(this.getBlockState.getBaseState.withProperty(TYPE, EnumProperty.EnumTankType.SIMPLE))
@@ -47,7 +48,6 @@ class BlockTank(uName: String, mat: Material = Material.iron, hardness: Float = 
   }
   
   override def getMetaFromState(state: IBlockState): Int = state.getValue(TYPE).asInstanceOf[EnumProperty.EnumTankType].getID
-  
   override def damageDropped(state: IBlockState): Int = getMetaFromState(state)
   
   
@@ -95,7 +95,8 @@ class BlockTank(uName: String, mat: Material = Material.iron, hardness: Float = 
       }
       case _ => false
     }
-  } 
+  }
+  
   
   
   @SideOnly(Side.CLIENT)

@@ -4,7 +4,9 @@
     "textures": {
 		"particle": "thaumcraft:blocks/amber_side",
         "Secondary": "thaumcraft:blocks/amber_side",
-        "Main": "tknowledge:blocks/fountain/pillar_amber"
+        "Main": "tknowledge:blocks/fountain/pillar_amber",
+		"Fourth": "thaumcraft:blocks/amber_brick",
+		"Third": "tknowledge:blocks/tk_misc.qs_block"
     },
     "elements": [
         {
@@ -13,7 +15,7 @@
             "faces": {
                 "west": {
                     "uv": [8.0,0.0,16.0,12.0],
-                    "texture": "Main"
+                    "texture": "#Main"
                 },
                 "east": {
                     "uv": [8.0,0.0,16.0,12.0],
@@ -29,6 +31,102 @@
                 },
 				"up": {
 					"uv": [0.0,0.0,8.0,12.0],
+					"texture": "#Secondary"
+				}
+            }
+        },
+		{
+            "from": [6,6,13],
+            "to": [10,10,14],
+            "faces": {
+                "west": {
+                    "texture": "#Secondary"
+                },
+                "east": {
+                    "texture": "#Secondary"
+                },
+                "north": {
+                    "texture": "#Secondary"
+                },
+                "south": {
+                    "texture": "#Fourth"
+                },
+				"up": {
+					"texture": "#Secondary"
+				},
+				"down": {
+					"texture": "#Secondary"
+				}
+            }
+        },
+		{
+            "from": [13,6,6],
+            "to": [16,10,10],
+            "faces": {
+                "west": {
+                    "texture": "#Secondary"
+                },
+                "east": {
+                    "texture": "#Fourth"
+                },
+                "north": {
+                    "texture": "#Secondary"
+                },
+                "south": {
+                    "texture": "#Secondary"
+                },
+				"up": {
+					"texture": "#Secondary"
+				},
+				"down": {
+					"texture": "#Secondary"
+				}
+            }
+        },
+		{
+            "from": [6,6,0],
+            "to": [10,10,3],
+            "faces": {
+                "west": {
+                    "texture": "#Secondary"
+                },
+                "east": {
+                    "texture": "#Secondary"
+                },
+                "north": {
+                    "texture": "#Fourth"
+                },
+                "south": {
+                    "texture": "#Secondary"
+                },
+				"up": {
+					"texture": "#Secondary"
+				},
+				"down": {
+					"texture": "#Secondary"
+				}
+            }
+        },
+		{
+            "from": [0,6,6],
+            "to": [3,10,10],
+            "faces": {
+                "west": {
+                    "texture": "#Fourth"
+                },
+                "east": {
+                    "texture": "#Secondary"
+                },
+                "north": {
+                    "texture": "#Secondary"
+                },
+                "south": {
+                    "texture": "#Secondary"
+                },
+				"up": {
+					"texture": "#Secondary"
+				},
+				"down": {
 					"texture": "#Secondary"
 				}
             }

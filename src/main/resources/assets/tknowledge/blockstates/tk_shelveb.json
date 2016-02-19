@@ -1,0 +1,12 @@
+{
+	"variants": {
+        "type=greatwood,facing=north":  { "model":"tknowledge:tk_shelve.greatwood" },
+		"type=greatwood,facing=west":   { "model":"tknowledge:tk_shelve.greatwood" },
+		"type=greatwood,facing=south":  { "model":"tknowledge:tk_shelve.greatwood" },
+		"type=greatwood,facing=east":   { "model":"tknowledge:tk_shelve.greatwood" },
+		"type=silverwood,facing=north": { "model":"tknowledge:tk_shelve.silverwood" },
+		"type=silverwood,facing=west": { "model":"tknowledge:tk_shelve.silverwood" },
+		"type=silverwood,facing=south": { "model":"tknowledge:tk_shelve.silverwood" },
+		"type=silverwood,facing=east": { "model":"tknowledge:tk_shelve.silverwood" }
+    }
+}

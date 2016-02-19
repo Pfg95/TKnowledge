@@ -1,6 +1,7 @@
 package com.dr_benway.tknowledge.block.tile.devices.fountain
 
 import thaumcraft.api.aspects._
+import net.minecraft.util.ITickable
 import com.dr_benway.tknowledge.block.tile.BaseTE
 import com.dr_benway.tknowledge.util.MultiBlockHelper
 import net.minecraft.nbt.NBTTagCompound
@@ -42,7 +43,7 @@ import com.dr_benway.tknowledge.api.FountainRecipe
 
 
 
-class TileFountain extends BaseTE with ISidedInventory with IAspectContainer with IFluidHandler with IEssentiaTransport {
+class TileFountain extends BaseTE with ISidedInventory with IAspectContainer with IFluidHandler with IEssentiaTransport with ITickable {
   
   override def isMaster() = true
   
@@ -90,10 +91,10 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
       
       if(tick % 10 == 0) {
         if(locked == true && !this.redstone() && currentRecipe != null) {
-          if(tick % 40 == 0) {
+          if(tick % 60 == 0) {
             getUpgrades()
             this.ready = false
-            markDirty()
+            markReallyDirty()
           }
           craftCycle()
         }
@@ -169,7 +170,7 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
           this.vis.remove(a, (currentRecipe.getVis.getAmount(a) * vCost).toInt)
         }
         
-        this.ready = true   
+        this.ready = true
         this.worldObj.playSoundEffect(this.pos.getX() + 0.5D, this.pos.getY() + 0.5D, this.pos.getZ() + 0.5D, "random.fizz", 0.25F, 2.6F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.8F)
         if((pollution * currentRecipe.getPollutingChance * 100).toInt > Random.nextInt(101) - 1)
           AuraHelper.pollute(this.getWorld, getPos, 1, true)
@@ -320,7 +321,7 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
     }
   }
   override def takeFromContainer(aspect: Aspect, i: Int) = {
-    if(this.essentia.getAmount(aspect) >= i) {
+    if(this.essentia.getAmount(aspect) >= i && this.locked == false) {
       this.essentia.remove(aspect, i)
       markReallyDirty()
       true

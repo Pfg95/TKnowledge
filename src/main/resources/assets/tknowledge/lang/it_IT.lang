@@ -1,0 +1,56 @@
+#MAIN
+itemGroup.knowledge=Thaumaturgical Knowledge
+
+#BLOCKS/ITEMS
+tile.tk_misc.qs_cons.name=Costrutto alchemico con argentovivo
+tile.tk_misc.qs_block.name=Argentovivo cristallizzato
+tile.tk_slab.qs_block.name=Lastra di argentovivo cristallizzato
+tile.tk_stairs_qs.name=Scale di argentovivo cristallizzato
+tile.tk_fountain.pillar_top.name=Fontana senza fondo
+tile.tk_fountain.pillar_middle.name=Fontana senza fondo
+tile.tk_fountain.pillar_thaumium.name=Fontana senza fondo
+tile.tk_fountain.pillar_brass.name=Fontana senza fondo
+tile.tk_fountain.pillar_void.name=Fontana senza fondo
+tile.tk_fountain.pillar_cup.name=Fontana senza fondo
+tile.tk_fountain.side_dioptra_thaumium.name=Fontana senza fondo
+tile.tk_fountain.side_dioptra_brass.name=Fontana senza fondo
+tile.tk_fountain.side_dioptra_void.name=Fontana senza fondo
+tile.tk_fountain.floor.name=Fontana senza fondo
+tile.tk_fountain.ghost.name=Fontana senza fondo
+tile.tk_fountain.wall.name=Fontana senza fondo
+tile.tk_tank.simple.name=Tank del taumaturgo
+#RESEARCH
+tc.research_category.KNOWLEDGE=Thaumaturgical Knowledge
+#
+tc.research_name.DUPE=Duplicazioni in più
+tc.research_text.DUPE=Vera alchimia.
+tk.research_page.DUPE.1=Le prime duplicazioni non erano che meri esperimenti, ma ora le tue abilità sono migliorate.<BR>Molti dei materiali più rari non sono ancora alla tua portata, ma prima o poi...
+tc.research_name.ENT=Processi entropici in più
+tc.research_text.ENT=Ma a che serve?
+tk.research_page.ENT.1=§8Perditio§0 è certamente uno degli aspetti più peculiari tra quelli che conosci.<BR>È tempo di imparare a sfruttarlo a dovere.
+tc.research_name.MAN=Manifatture in più
+tc.research_text.MAN=(Quasi) tutto!
+tk.research_page.MAN.1=Il taumaturgo è in grado di catalizzare cambiamenti nella realtà usando le sue scoperte.<BR>Ma anche imparare a replicare ciò che esiste già non è male.
+tc.research_name.REC_QS=Argentovivo cristallizzato
+tc.research_text.REC_QS=Un buon non compleanno a te!
+tk.research_page.REC_QS.1=In natura, l'argentovivo o mercurio ha la peculiarità di essere allo stato liquido, data la sua bassa temperatura di fusione. Si solidifica col freddo, ma tu hai intuito che aggiungere della essentia di §bVitreus§0 permetterebbe di creare una versione permanentemente cristallizzata di questo affascinante e pericoloso elemento.
+tk.research_page.REC_QS.2=Hai già esperienza con l'argentovivo, avendolo usato per creare i tubi per essentia, ed hai ideato questa variante del costrutto alchemico. Potrebbe tornare utile...
+tc.research_name.FOUNTAIN=Fontana Senza Fondo
+tc.research_text.FOUNTAIN=Qui scientiam auget
+tk.research_page.FOUNTAIN.1=Questo è un vero traguardo. Dopo l'esperienza fatta col Taumatorium, creare liquidi non poteva che essere il prossimo passo nel tuo percorso alchemico.<BR>La Fontana Senza Fondo può produrre fluidi a partire da comuni oggetti, se aiutata con essentia e vis, per poi versarli tramite l'ugello nella vasca sottostante. Ah, ma non è tutto...
+tk.research_page.FOUNTAIN.2=La Fontana può essere creata con gli altri metalli magici che hai scoperto. Mentre la variante di §dTaumio§0 è la più equilibrata, una fatta di §6Ottone§0 è più sicura, poiché riduce di molto il rischio di rilasciare flux nell'aura, riducendo però anche la velocità con cui lavora.<BR><LINE>in primis, bisogna selezionare la procedura mettendo sia il liquido finale che l'oggetto iniziale nella vasca e nel piedistallo in cima. Se questa procedura esiste ed è già stata scoperta, apparirà un ologramma del liquido che cade. Colpendo la vasca superiore con la bacchetta, la fontana inizierà la procedura. L'essentia verrà drenata da tubi connessi alla colonna sotto la vasca superiore.
+tk.research_page.FOUNTAIN.3=Non appena hai scoperto il §5metalvuoto§0 non hai visto l'ora di provare a creare una nuova variante. Quest'ultima è in grado di creare fluidi con estrema velocità, ma i rischi ora son tutt'altro che trascurabili...
+tk.research_page.FOUNTAIN.4=Che strano. Le caratteristiche principali di una variante vengono dai metalli usati, ma hai scoperto che piantare dei cristalli di vis sugli angoli più esterni può influenzare le procedure.<BR>Questi effetti si accumulano e diventano più forti con la crescita dei cristalli.<LINE>§6Aer§0: più velocità e più vis richiesto.<BR>§2Terra§0: meno velocità, meno vis richiesto.
+tk.research_page.FOUNTAIN.5=§7Ordo§0: la fontana diventa più sicura, ma richiede più essentia.<BR>§8Perditio§0: viene richiesta meno essentia, ma i rischi di rilascio di flux aumentano.<BR>§cIgnis§0:L'efficienza per fluidi caldi aumenta di molto, con maggiori quantità per procedura, e di molto diminuisce quella per fluidi freddi.<BR>§3Aqua§0:Viceversa, l'efficienza per fluidi freddi aumenta e diminuisce quella per fluidi caldi.
+tk.research_page.FOUNTAIN.water=§3Water§0: Questa è la procedura standard che la Fontana seguirà in assenza di istruzioni valide. L'acqua viene generata quasi dal nulla, con un lieve costo di vis di §3Aqua§0.<BR>:§5Rischio di flux§0: §aquasi nullo§0.<LINE>§cLava§0:La lava è sempre stata non troppo facile da ottenere, e anche qui non vi è eccezione. Un blocco di Netherrack con 8 essentiae di §cIgnis§0 e 5 vis di §6Aer§0 creano l'equivalente di 4 secchi.<BR>§5Rischio di flux§0: §aBasso§0.
+tk.research_page.FOUNTAIN.purifying=§7Fluido purificante§0: La Fontana può produrre le risorse più tediose con facilità ed in massa, con abbastanza ingredienti. Per il fluido purificante, sono necessari un sale da bagno puricante, con 8 essentiae di§7Cognitio§0 e un po' di vis di §7Ordo§0.<BR>§5Rischio di flux§0: §6Medio§0<LINE>§5Morte liquida§0:Per ottenere morte liquida, sono necessarie 8 essentiae di §5Vitium§0, 2 di §7Mortuus§0 e un pizzico di vis di §8Perditio§0 per convertire una pietra corrotta. Forse un po' rara, ma l'efficienza è alta.<BR>§5Rischio di flux§0: §6Medio§0
+tk.research_page.FOUNTAIN.thaumium=<IMG>tknowledge:textures/research/thaumium_fountain.png:0:0:255:255:.60</IMG>
+tk.research_page.FOUNTAIN.brass=<IMG>tknowledge:textures/research/brass_fountain.png:0:0:255:255:.60</IMG>
+tk.research_page.FOUNTAIN.void=<IMG>tknowledge:textures/research/void_fountain.png:0:0:255:255:.60</IMG>
+tc.research_name.TANK_SIMPLE=Stoccaggio liquidi
+tc.research_text.TANK_SIMPLE=Hic et Nunc
+tk.research_page.TANK_SIMPLE.1=tank tank
+#
+#
+#OTHER
+tk.fountain.notempty=§5Prima di poter iniziare un nuovo processo la Fontana deve essere priva di essentia.§0

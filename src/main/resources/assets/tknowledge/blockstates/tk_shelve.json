@@ -1,0 +1,6 @@
+{
+	"variants": {
+        "type=greatwood":  { "model":"tknowledge:tk_shelve.greatwood" },
+		"type=silverwood":  { "model":"tknowledge:tk_shelve.silverwood" }
+    }
+}

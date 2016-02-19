@@ -1,9 +1,5 @@
 package com.dr_benway.tknowledge.block
 
-import scala.math._
-import scala.util._
-import scala.io._
-import scala.collection._
 import java.util.List
 import net.minecraft.block.Block
 import net.minecraft.block.material.Material
@@ -24,7 +20,7 @@ import net.minecraft.world.World
 
 
 
- class BaseBlock(uName: String = "wat", mat: Material = Material.rock, hardness: Float = 2.0f, resistance: Float = 2.0f) extends Block(mat) { 
+ abstract class BaseBlock(uName: String = "wat", mat: Material = Material.rock, hardness: Float = 2.0f, resistance: Float = 2.0f) extends Block(mat) { 
  
     
     setUnlocalizedName(s"tk_$uName")
@@ -35,9 +31,7 @@ import net.minecraft.world.World
     
     def addToTab() { setCreativeTab(Knowledge.tab) }
     
-    def exists = this != null
-    
-    def getSpecialName(stack: ItemStack): String = "?"
+    def getSpecialName(stack: ItemStack): String
     
     override def damageDropped(state: IBlockState): Int = getMetaFromState(state)
     

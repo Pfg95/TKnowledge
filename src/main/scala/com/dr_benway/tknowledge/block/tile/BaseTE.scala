@@ -9,11 +9,10 @@ import net.minecraft.util.BlockPos
 import net.minecraft.block.state.IBlockState
 import net.minecraft.world.World
 import net.minecraft.util.EnumFacing
-import net.minecraft.util.ITickable
 
 
 
-class BaseTE extends TileEntity with ITickable {
+class BaseTE extends TileEntity {
   
   
   def markReallyDirty() {
@@ -22,7 +21,6 @@ class BaseTE extends TileEntity with ITickable {
       markDirty()
   }
   
-  override def update() {}
   
   override def readFromNBT(nbt: NBTTagCompound) {
     super.readFromNBT(nbt)

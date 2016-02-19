@@ -19,10 +19,12 @@ object RenderRegister {
     reg(TKBlocks.slab, 0, "tk_slab.qs_block")
     reg(TKBlocks.slab_double, 0, "tk_misc.qs_block")
     reg(TKBlocks.stairs_qs, 0, "tk_stairs_qs")
-    reg(TKBlocks.tank, 0, "tk_tank.simple")
+    //reg(TKBlocks.tank, 0, "tk_tank.simple")
+    //reg(TKBlocks.shelve, 0, "tk_shelve.greatwood")
+    //reg(TKBlocks.shelve, 1, "tk_shelve.silverwood")
   }
   
-  private def reg(a: Any, meta: Byte = 0, file: String) {
+  private def reg(a: Any, meta: Byte, file: String) {
     val item = a match { case i: Item => i  case b: Block => Item.getItemFromBlock(b) }
     ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Knowledge.MODID + ":" + file, "inventory"))
   }
