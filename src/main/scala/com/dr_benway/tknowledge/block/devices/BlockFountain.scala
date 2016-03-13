@@ -224,12 +224,8 @@ class BlockFountain(uName: String, mat: Material = Material.rock, hardness: Floa
       
       val master = (for {
       x <- -2 to 2
-      z <- -2 to 2      //Copypaste not to rely on TE's code
-      if(world.getTileEntity(pos.add(x, 3, z)).isInstanceOf[TileFountain])
-      } yield world.getTileEntity(pos.add(x, 3, z))) headOption match {
-        case Some(x: TileFountain) => x
-        case _ => null
-      }
+      z <- -2 to 2
+      } yield world.getTileEntity(pos.add(x, 3, z)) ) collectFirst { case f: TileFountain => f } orNull
       
         if(!player.isSneaking()) {
           val fs = FluidContainerRegistry.getFluidForFilledItem(player.inventory.getCurrentItem)
@@ -272,13 +268,9 @@ class BlockFountain(uName: String, mat: Material = Material.rock, hardness: Floa
       
       
       val master = (for {
-      x <- -2 to 2
-      z <- -2 to 2
-      if(world.getTileEntity(pos.add(x, 3, z)).isInstanceOf[TileFountain])
-      } yield world.getTileEntity(pos.add(x, 3, z))) headOption match {
-        case Some(x: TileFountain) => x
-        case _ => null
-      }
+      x <- -1 to 1
+      z <- -1 to 1
+      } yield world.getTileEntity(pos.add(x, 3, z)) ) collectFirst { case f: TileFountain => f } orNull
       
         if(!player.isSneaking()) {
           val fs = FluidContainerRegistry.getFluidForFilledItem(player.inventory.getCurrentItem)
@@ -339,6 +331,11 @@ class BlockFountain(uName: String, mat: Material = Material.rock, hardness: Floa
       case 11 => new TileSlave("fountain", 3)
       case _ => null
     }
+    /*
+    override def createTileEntity(w: World, s: IBlockState) = s match {
+      case getDefaultState.withProperty(TYPE, EnumProperty.EnumFountainType.PILLAR_THAUMIUM) => new TileSlave("fountain", 3)
+      case _ => null
+    } */
     
     
     //Wand handling
@@ -347,11 +344,8 @@ class BlockFountain(uName: String, mat: Material = Material.rock, hardness: Floa
     val master = (for {
       x <- -1 to 1
       z <- -1 to 1
-      if(world.getTileEntity(pos.add(x, 1, z)).isInstanceOf[TileFountain])
-      } yield world.getTileEntity(pos.add(x, 1, z))) headOption match {
-        case Some(x: TileFountain) => x
-        case _ => null
-      }
+      } yield world.getTileEntity(pos.add(x, 1, z)) ) collectFirst { case f: TileFountain => f } orNull
+    
     eplayer.swingItem()
     if(!world.isRemote && !eplayer.isSneaking() && this.getMetaFromState(world.getBlockState(pos)) == 5) {
      

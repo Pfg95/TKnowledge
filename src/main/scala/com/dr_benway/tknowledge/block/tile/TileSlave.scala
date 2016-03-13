@@ -12,12 +12,12 @@ class TileSlave(clazz: String, n: Int = 1, f: EnumFacing = EnumFacing.UP) extend
   
   def hasMaster(): Boolean = {
     val te = f match {
-      case EnumFacing.UP =>    this.worldObj.getTileEntity(this.getPos.up(n))
-      case EnumFacing.DOWN =>  this.worldObj.getTileEntity(this.getPos.down(n))
+      case EnumFacing.UP    => this.worldObj.getTileEntity(this.getPos.up(n))
+      case EnumFacing.DOWN  => this.worldObj.getTileEntity(this.getPos.down(n))
       case EnumFacing.SOUTH => this.worldObj.getTileEntity(this.getPos.south(n))
-      case EnumFacing.WEST =>  this.worldObj.getTileEntity(this.getPos.west(n))
+      case EnumFacing.WEST  => this.worldObj.getTileEntity(this.getPos.west(n))
       case EnumFacing.NORTH => this.worldObj.getTileEntity(this.getPos.north(n))
-      case EnumFacing.EAST =>  this.worldObj.getTileEntity(this.getPos.east(n))
+      case EnumFacing.EAST  => this.worldObj.getTileEntity(this.getPos.east(n))
     }
 
     te match {

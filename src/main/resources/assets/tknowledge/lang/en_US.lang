@@ -2,6 +2,7 @@
 itemGroup.knowledge=Thaumaturgical Knowledge
 
 #BLOCKS/ITEMS
+item.tk_resource.qs_crystal.name=Crystallized Quicksilver Drop
 tile.tk_misc.qs_cons.name=Quicksilver Wired Construct
 tile.tk_misc.qs_block.name=Crystallized Quicksilver Block
 tile.tk_slab.qs_block.name=Crystallized Quicksilver Slab

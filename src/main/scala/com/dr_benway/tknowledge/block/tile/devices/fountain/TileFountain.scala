@@ -59,42 +59,40 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
   private var eCost = 1.0F
   private var vCost = 1.0F
   private var efficiency = 1.0F
-  private var basePollution = 2.0F
   private var pollution = 1.0F
-  private var baseSpeed = 2.0F
   private var speed = 1.0F // .5F makes the fountain faster and 1.5F makes it slower
-  
+  private lazy val baseSpeed = TKBlocks.fountain.getMetaFromState(this.getWorld.getBlockState(getPos.add(-2,-3,-2))) match {
+    case 3 => 1.0F
+    case 7 => 1.5F
+    case 8 => 0.5F
+    case _ => throw new Exception("TKNOWLEDGE: Wrong pos!")
+  }
+  private lazy val basePollution = TKBlocks.fountain.getMetaFromState(this.getWorld.getBlockState(getPos.add(-2,-3,-2))) match {
+    case 3 => .5F
+    case 7 => .2F
+    case 8 => .8F
+    case _ => throw new Exception("TKNOWLEDGE: Wrong pos!")
+  }
   
   override def update() {
     tick += 1
     if(tick >= 1200) tick = 0
-    //height = calcTankHeight()
-    //visualHeight += ANIMATION_SPEED * Math.signum(height - visualHeight)
     
     if(!this.worldObj.isRemote) {
-      if(baseSpeed == 2.0F) {
-        baseSpeed = TKBlocks.fountain.getMetaFromState(this.getWorld.getBlockState(this.getPos.add(-2, -3, -2))) match {
-          case 3 => 1.0F
-          case 7 => 1.5F
-          case 8 => 0.5F
-        }
-      }
-      if(basePollution == 2.0F) {
-        basePollution = TKBlocks.fountain.getMetaFromState(this.getWorld.getBlockState(this.getPos.add(-2, -3, -2))) match {
-          case 3 => 0.5F
-          case 7 => 0.2F
-          case 8 => 0.8F
-        }
-      }
       
-      if(tick % 20 == 0) MultiBlockHelper.Fountain.verify(this.worldObj, this.getPos) 
+      if(tick % 20 == 0)
+        MultiBlockHelper.Fountain.verify(this.worldObj, this.getPos) 
       
       if(tick % 10 == 0) {
-        if(locked == true && !this.redstone() && currentRecipe != null) {
+        if(locked && !this.redstone() && currentRecipe != null) {
           if(tick % 60 == 0) {
             getUpgrades()
-            this.ready = false
-            markReallyDirty()
+            
+            if(this.ready) {
+              this.ready = false
+              worldObj.markBlockForUpdate(getPos)
+            }
+            markDirty()
           }
           craftCycle()
         }
@@ -138,7 +136,7 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
           }
         }
       }
-     }
+    }
   }
   
   private def drawVis() {
@@ -267,8 +265,8 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
   override def writeToNBT(nbt: NBTTagCompound) {
     super.writeToNBT(nbt)
     nbt.setInteger("tick", tick)
-    nbt.setFloat("baseSpeed", baseSpeed)
-    nbt.setFloat("basePollution", basePollution)
+    //nbt.setFloat("baseSpeed", baseSpeed)
+    //nbt.setFloat("basePollution", basePollution)
     nbt.setFloat("speed", speed)
     nbt.setFloat("pollution", pollution)
     nbt.setFloat("efficiency", efficiency)
@@ -283,8 +281,8 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
   override def readFromNBT(nbt: NBTTagCompound) {
     super.readFromNBT(nbt)
     this.tick = nbt.getInteger("tick")
-    this.baseSpeed = nbt.getFloat("baseSpeed")
-    this.basePollution = nbt.getFloat("basePollution")
+    //this.baseSpeed = nbt.getFloat("baseSpeed")
+    //this.basePollution = nbt.getFloat("basePollution")
     this.speed = nbt.getFloat("speed")
     this.pollution = nbt.getFloat("pollution")
     this.efficiency = nbt.getFloat("efficiency")
@@ -299,9 +297,9 @@ class TileFountain extends BaseTE with ISidedInventory with IAspectContainer wit
   
   
   @SideOnly(Side.CLIENT)
-  override def getRenderBoundingBox(): AxisAlignedBB = {
+  override def getRenderBoundingBox(): AxisAlignedBB = 
     AxisAlignedBB.fromBounds(getPos().getX() - 2.8D, getPos().getY() - 2.8D, getPos().getZ() - 2.8D, getPos().getX() + 2.8D, getPos().getY() + 3.1D, getPos().getZ() + 2.8D)
-  } 
+  
   
   override def shouldRenderInPass(i: Int): Boolean = true
   

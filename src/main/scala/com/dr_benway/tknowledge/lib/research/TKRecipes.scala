@@ -20,6 +20,7 @@ import com.dr_benway.tknowledge.api.FountainRecipe
 import net.minecraftforge.fluids.FluidRegistry
 import thaumcraft.common.config.ConfigBlocks
 import com.dr_benway.tknowledge.TKConfig
+import com.dr_benway.tknowledge.item.TKItems
 
 
 object TKRecipes {
@@ -42,9 +43,9 @@ object TKRecipes {
     addCrucibleRecipe("DUPE","_BONE", new ItemStack(Items.bone,2,0), new ItemStack(Items.bone,1,0), aspects)
     aspects = new AspectList().add(Aspect.SENSES, 1).add(Aspect.BEAST, 2)
     addCrucibleRecipe("DUPE","_EYES", new ItemStack(Items.spider_eye,2,0), new ItemStack(Items.spider_eye,1,0), aspects)
-    aspects = new AspectList().add(Aspect.TRAP,4).add(Aspect.CRYSTAL,6)
+    aspects = new AspectList().add(Aspect.TRAP,3).add(Aspect.CRYSTAL,6)
     addCrucibleRecipe("DUPE", "_AMBER", new ItemStack(ItemsTC.amber, 2), new ItemStack(ItemsTC.amber, 1), aspects)
-    aspects = new AspectList().add(Aspect.METAL, 8).add(Aspect.EXCHANGE, 6).add(Aspect.MIND, 4)
+    aspects = new AspectList().add(Aspect.METAL, 2).add(Aspect.EXCHANGE, 4).add(Aspect.MIND, 2)
     addCrucibleRecipe("DUPE", "_QUICKSILVER", new ItemStack(ItemsTC.quicksilver, 2), new ItemStack(ItemsTC.quicksilver, 1), aspects)
     
     if(TKConfig.allowEnt_Sand) {
@@ -73,7 +74,7 @@ object TKRecipes {
       addCrucibleRecipe("MAN", "_GHAST_TEAR", new ItemStack(Items.ghast_tear, 1), new ItemStack(Blocks.obsidian, 1), aspects)
     }
     aspects = new AspectList().add(Aspect.CRYSTAL, 4).add(Aspect.COLD, 2)
-    addCrucibleRecipe("REC_QS", "_QS_BLOCK", new ItemStack(TKBlocks.misc, 1, 1), new ItemStack(ItemsTC.quicksilver, 4), aspects)
+    addCrucibleRecipe("REC_QS", "_QS_BLOCK", new ItemStack(TKItems.resource, 1, 1), new ItemStack(ItemsTC.quicksilver, 1), aspects)
     
     
     
@@ -107,7 +108,7 @@ object TKRecipes {
     //Vanilla
     recipes += ("QS_SLAB" -> GameRegistry.addShapedRecipe(new ItemStack(TKBlocks.slab, 6, 0), Seq("KKK", Character.valueOf('K'), new ItemStack(TKBlocks.misc, 1, 1)):_*))
     recipes += ("QS_STAIRS" -> GameRegistry.addShapedRecipe(new ItemStack(TKBlocks.stairs_qs, 4, 0), Seq("K  ", "KK ", "KKK", Character.valueOf('K'), new ItemStack(TKBlocks.misc, 1, 1)):_*))
-    
+    recipes += ("QS_CRYSTAL" -> GameRegistry.addShapedRecipe(new ItemStack(TKBlocks.misc, 1, 1), Seq("KK", "KK", Character.valueOf('K'), new ItemStack(TKItems.resource, 1, 1)):_*))
     
     
   }

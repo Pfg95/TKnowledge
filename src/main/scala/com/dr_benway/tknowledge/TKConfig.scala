@@ -14,7 +14,7 @@ object TKConfig {
     final var allowMan_BlazeRod = true
     final var allowMan_GhastTear = true
     
-    def preInit(suggestedConfigurationFile: File) = {
+    def preInit(suggestedConfigurationFile: File) {
       
       val conf = new Configuration(suggestedConfigurationFile)
       conf.addCustomCategoryComment(CATEGORY_RECIPES, "Here you can disable various alchemy recipes.")

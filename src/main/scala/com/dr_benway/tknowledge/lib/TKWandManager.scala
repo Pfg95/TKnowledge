@@ -40,7 +40,7 @@ object TKWandManager extends IWandTriggerManager {
     }
   }
   
-  private def createFountain(is: ItemStack, player: EntityPlayer, world: World, pos: BlockPos, facing: EnumFacing): Boolean = {
+  private def createFountain(is: ItemStack, player: EntityPlayer, world: World, pos: BlockPos, facing: EnumFacing) = {
     
      val wand = is.getItem().asInstanceOf[IWand]
      if(fitFountain(world, pos) && (wand.consumeAllVis(is, player, new AspectList().add(Aspect.FIRE, 150).add(Aspect.EARTH, 150).add(Aspect.ORDER, 150).add(Aspect.AIR, 150).add(Aspect.ENTROPY, 150).add(Aspect.WATER, 150), true, true))) {
@@ -48,7 +48,7 @@ object TKWandManager extends IWandTriggerManager {
      } else false
   }
   
-  private def fitFountain(world: World, pos: BlockPos): Boolean = {
+  private def fitFountain(world: World, pos: BlockPos) = {
     
     case class Point(x: Int, y: Int, z: Int) 
     

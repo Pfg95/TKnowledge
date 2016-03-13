@@ -59,8 +59,8 @@ object TKResearch {
     if(TKConfig.allowMan_GhastTear) elem += new ResearchPage(getMap.apply("MAN_GHAST_TEAR").asInstanceOf[CrucibleRecipe])
     getTKResearchItem("MAN", "KNOWLEDGE", researchAspects, -13, -2, 1, new ItemStack(Items.ender_pearl, 1)).setParents("COPY_ALCHEMICALMANUFACTURE").setPages(elem.result:_*).registerResearchItem()
   }
-  researchAspects = new AspectList().add(Aspect.LIFE, 3)
-  pages = Array[ResearchPage](new ResearchPage("tk.research_page.REC_QS.1"), new ResearchPage(getMap.apply("REC_QS_QS_BLOCK").asInstanceOf[CrucibleRecipe]), new ResearchPage(getMap.apply("QS_SLAB").asInstanceOf[IRecipe]), new ResearchPage(getMap.apply("QS_STAIRS").asInstanceOf[IRecipe]), new ResearchPage("tk.research_page.REC_QS.2").setRequisite("THAUMATORIUM"), new ResearchPage(getMap.apply("QS_CONS").asInstanceOf[ShapedArcaneRecipe]).setRequisite("THAUMATORIUM"))
+  researchAspects = new AspectList().add(Aspect.CRYSTAL, 3).add(Aspect.COLD, 2)
+  pages = Array[ResearchPage](new ResearchPage("tk.research_page.REC_QS.1"), new ResearchPage(getMap.apply("REC_QS_QS_BLOCK").asInstanceOf[CrucibleRecipe]), new ResearchPage(getMap.apply("QS_CRYSTAL").asInstanceOf[IRecipe]),new ResearchPage(getMap.apply("QS_SLAB").asInstanceOf[IRecipe]), new ResearchPage(getMap.apply("QS_STAIRS").asInstanceOf[IRecipe]), new ResearchPage("tk.research_page.REC_QS.2").setRequisite("THAUMATORIUM"), new ResearchPage(getMap.apply("QS_CONS").asInstanceOf[ShapedArcaneRecipe]).setRequisite("THAUMATORIUM"))
   getTKResearchItem("REC_QS", "KNOWLEDGE", researchAspects, -11, -4, 1, new ItemStack(TKBlocks.misc, 1, 1)).setPages(pages:_*).setParents("METALLURGY").setSecondary().registerResearchItem()
   researchAspects = new AspectList().add(Aspect.WATER, 1).add(Aspect.CRAFT, 1).add(Aspect.FIRE, 1).add(Aspect.ENERGY, 1)
   pages = Array[ResearchPage](new ResearchPage("tk.research_page.FOUNTAIN.1"), new ResearchPage("tk.research_page.FOUNTAIN.thaumium"), new ResearchPage("tk.research_page.FOUNTAIN.2"), new ResearchPage("tk.research_page.FOUNTAIN.brass"), new ResearchPage("tk.research_page.FOUNTAIN.3").setRequisite("VOIDMETAL"), new ResearchPage("tk.research_page.FOUNTAIN.void").setRequisite("VOIDMETAL"), new ResearchPage("tk.research_page.FOUNTAIN.4").setRequisite("CRYSTALFARMER"), new ResearchPage("tk.research_page.FOUNTAIN.5").setRequisite("CRYSTALFARMER"), new ResearchPage("tk.research_page.FOUNTAIN.water"), new ResearchPage("tk.research_page.FOUNTAIN.purifying").setRequisite("LIQUIDDEATH").setRequisite("BATHSALTS"))
@@ -79,18 +79,16 @@ object TKResearch {
   
   private def getMap = TKRecipes.recipes
   
-  private def getTKResearchItem(tag: String, cat: String, researchAspects: AspectList, x: Int, y: Int, complex: Int, icon: Any): TKResearchItem = {
+  private def getTKResearchItem(tag: String, cat: String = "KNOWLEDGE", researchAspects: AspectList, x: Int, y: Int, complex: Int, icon: Any) =
     icon match {
       case i: ItemStack => new TKResearchItem(tag, cat, researchAspects, x, y, complex, i)
       case r: ResourceLocation => new TKResearchItem(tag, cat, researchAspects, x, y, complex, r)
     }
-  }
   
-  private def getTCResearchItem(original: String, ocat: String, x: Int, y: Int, icon: Any): TKTCResearchItem = {
+  private def getTCResearchItem(original: String, ocat: String, x: Int, y: Int, icon: Any) = 
     icon match {
       case i: ItemStack => new TKTCResearchItem(s"COPY_$original", "KNOWLEDGE", original, ocat, x, y, i)
       case r: ResourceLocation => new TKTCResearchItem(s"COPY_$original", "KNOWLEDGE", original, ocat, x, y, r)
     }
-  }
   
 }

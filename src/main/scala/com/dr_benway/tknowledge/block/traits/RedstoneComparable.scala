@@ -20,8 +20,7 @@ trait RedstoneComparable extends Block {
       case _ => 0
     }
   
-  def calcTankSignal(world: World, pos: BlockPos, fh: IFluidHandler) = {
+  def calcTankSignal(world: World, pos: BlockPos, fh: IFluidHandler) =
     fh.getTankInfo(EnumFacing.UP).foldLeft(0)(_ + _.fluid.amount) / fh.getTankInfo(EnumFacing.UP).foldLeft(0)(_ + _.capacity) * 15
-  }
   
 }

@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 
 object TKItems {
   
-  val resource = new ItemResource("resource", true)
+  val resource = new ItemResource("resource")
   
   def addItems() {
     

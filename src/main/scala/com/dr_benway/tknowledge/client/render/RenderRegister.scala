@@ -14,6 +14,7 @@ object RenderRegister {
   
   def preInit(e: FMLPreInitializationEvent) {
     reg(TKItems.resource, 0, "tk_resource_tab")
+    reg(TKItems.resource, 1, "tk_resource_qs_crystal")
     reg(TKBlocks.misc, 0, "tk_misc.qs_cons")
     reg(TKBlocks.misc, 1, "tk_misc.qs_block")
     reg(TKBlocks.slab, 0, "tk_slab.qs_block")
